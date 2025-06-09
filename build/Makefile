@@ -142,6 +142,19 @@ test_visualization/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_visualization.dir/build.make CMakeFiles/test_visualization.dir/build
 .PHONY : test_visualization/fast
 
+#=============================================================================
+# Target rules for targets named test_3d_visualization
+
+# Build rule for target.
+test_3d_visualization: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_3d_visualization
+.PHONY : test_3d_visualization
+
+# fast build rule for target.
+test_3d_visualization/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/build
+.PHONY : test_3d_visualization/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -165,6 +178,30 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vector_store.dir/build.make CMakeFiles/vector_store.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+test_3d_visualization.o: test_3d_visualization.cpp.o
+.PHONY : test_3d_visualization.o
+
+# target to build an object file
+test_3d_visualization.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
+.PHONY : test_3d_visualization.cpp.o
+
+test_3d_visualization.i: test_3d_visualization.cpp.i
+.PHONY : test_3d_visualization.i
+
+# target to preprocess a source file
+test_3d_visualization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.i
+.PHONY : test_3d_visualization.cpp.i
+
+test_3d_visualization.s: test_3d_visualization.cpp.s
+.PHONY : test_3d_visualization.s
+
+# target to generate assembly for a file
+test_3d_visualization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.s
+.PHONY : test_3d_visualization.cpp.s
 
 test_visualization.o: test_visualization.cpp.o
 .PHONY : test_visualization.o
@@ -198,11 +235,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test_3d_visualization"
 	@echo "... test_visualization"
 	@echo "... vector_store"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test_3d_visualization.o"
+	@echo "... test_3d_visualization.i"
+	@echo "... test_3d_visualization.s"
 	@echo "... test_visualization.o"
 	@echo "... test_visualization.i"
 	@echo "... test_visualization.s"

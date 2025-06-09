@@ -66,4 +66,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/vector_store.dir/DependInfo.cmake"
   "CMakeFiles/test_visualization.dir/DependInfo.cmake"
+  "CMakeFiles/test_3d_visualization.dir/DependInfo.cmake"
   )

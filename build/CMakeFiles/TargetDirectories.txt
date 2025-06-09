@@ -1,4 +1,5 @@
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/vector_store.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/test_visualization.dir
+/Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/test_3d_visualization.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/edit_cache.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/rebuild_cache.dir

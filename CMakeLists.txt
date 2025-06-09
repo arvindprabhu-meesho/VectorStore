@@ -18,4 +18,11 @@ add_executable(vector_store main.cpp)
 
 # Test visualization executable
 add_executable(test_visualization test_visualization.cpp)
-target_link_libraries(test_visualization PRIVATE sfml-graphics sfml-window sfml-system) 
+
+# Add the 3D test visualization executable
+add_executable(test_3d_visualization test_3d_visualization.cpp)
+
+# Link SFML libraries
+target_link_libraries(vector_store PRIVATE sfml-window sfml-graphics sfml-system)
+target_link_libraries(test_visualization PRIVATE sfml-window sfml-graphics sfml-system)
+target_link_libraries(test_3d_visualization PRIVATE sfml-window sfml-graphics sfml-system) 

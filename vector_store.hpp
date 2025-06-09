@@ -67,7 +67,7 @@ public:
     // Add a vector to the store
     void addVector(const Vector& vec) {
         if (vec.getDimension() != dimension) {
-            throw std::runtime_error("Vector dimension mismatch");
+            throw std::runtime_error("Vector dimension does not match store dimension");
         }
         vectors.push_back(vec);
     }
@@ -85,10 +85,13 @@ public:
         return vectors.size();
     }
 
+    // Get the dimension of vectors in the store
+    size_t getDimension() const { return dimension; }
+
     // Get vector by index
     const Vector& getVector(size_t index) const {
         if (index >= vectors.size()) {
-            throw std::out_of_range("Index out of bounds");
+            throw std::runtime_error("Vector index out of range");
         }
         return vectors[index];
     }
