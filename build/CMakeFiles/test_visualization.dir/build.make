@@ -95,6 +95,7 @@ test_visualization_EXTERNAL_OBJECTS =
 
 test_visualization: CMakeFiles/test_visualization.dir/test_visualization.cpp.o
 test_visualization: CMakeFiles/test_visualization.dir/build.make
+test_visualization: _deps/spdlog-build/libspdlog.a
 test_visualization: CMakeFiles/test_visualization.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_visualization"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_visualization.dir/link.txt --verbose=$(VERBOSE)

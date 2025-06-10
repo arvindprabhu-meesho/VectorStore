@@ -155,6 +155,32 @@ test_3d_visualization/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/build
 .PHONY : test_3d_visualization/fast
 
+#=============================================================================
+# Target rules for targets named test_benchmark
+
+# Build rule for target.
+test_benchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_benchmark
+.PHONY : test_benchmark
+
+# fast build rule for target.
+test_benchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_benchmark.dir/build.make CMakeFiles/test_benchmark.dir/build
+.PHONY : test_benchmark/fast
+
+#=============================================================================
+# Target rules for targets named spdlog
+
+# Build rule for target.
+spdlog: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 spdlog
+.PHONY : spdlog
+
+# fast build rule for target.
+spdlog/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/spdlog-build/CMakeFiles/spdlog.dir/build.make _deps/spdlog-build/CMakeFiles/spdlog.dir/build
+.PHONY : spdlog/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -203,6 +229,30 @@ test_3d_visualization.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_3d_visualization.dir/build.make CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.s
 .PHONY : test_3d_visualization.cpp.s
 
+test_benchmark.o: test_benchmark.cpp.o
+.PHONY : test_benchmark.o
+
+# target to build an object file
+test_benchmark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_benchmark.dir/build.make CMakeFiles/test_benchmark.dir/test_benchmark.cpp.o
+.PHONY : test_benchmark.cpp.o
+
+test_benchmark.i: test_benchmark.cpp.i
+.PHONY : test_benchmark.i
+
+# target to preprocess a source file
+test_benchmark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_benchmark.dir/build.make CMakeFiles/test_benchmark.dir/test_benchmark.cpp.i
+.PHONY : test_benchmark.cpp.i
+
+test_benchmark.s: test_benchmark.cpp.s
+.PHONY : test_benchmark.s
+
+# target to generate assembly for a file
+test_benchmark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_benchmark.dir/build.make CMakeFiles/test_benchmark.dir/test_benchmark.cpp.s
+.PHONY : test_benchmark.cpp.s
+
 test_visualization.o: test_visualization.cpp.o
 .PHONY : test_visualization.o
 
@@ -235,7 +285,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... spdlog"
 	@echo "... test_3d_visualization"
+	@echo "... test_benchmark"
 	@echo "... test_visualization"
 	@echo "... vector_store"
 	@echo "... main.o"
@@ -244,6 +296,9 @@ help:
 	@echo "... test_3d_visualization.o"
 	@echo "... test_3d_visualization.i"
 	@echo "... test_3d_visualization.s"
+	@echo "... test_benchmark.o"
+	@echo "... test_benchmark.i"
+	@echo "... test_benchmark.s"
 	@echo "... test_visualization.o"
 	@echo "... test_visualization.i"
 	@echo "... test_visualization.s"

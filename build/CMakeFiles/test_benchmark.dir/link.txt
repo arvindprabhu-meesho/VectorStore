@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_benchmark.dir/test_benchmark.cpp.o -o test_benchmark   -L/opt/homebrew/lib  -Wl,-rpath,/opt/homebrew/lib _deps/spdlog-build/libspdlog.a

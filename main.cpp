@@ -1,38 +1,61 @@
-#include <iostream>
 #include "vector_store.hpp"
+#include <iostream>
+#include <random>
+
+// Helper function to create a random vector
+Vector createRandomVector(size_t dimension) {
+    Vector vec(dimension);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(-1.0, 1.0);
+    
+    for(size_t i = 0; i < dimension; ++i) {
+        vec[i] = dis(gen);
+    }
+    return vec;
+}
 
 int main() {
-    // Create a vector store for 3-dimensional vectors
-    VectorStore store(3);
-
-    // Create and add some vectors
-    Vector v1(3);
-    v1[0] = 1.0; v1[1] = 2.0; v1[2] = 3.0;
-    store.addVector(v1);
-
-    Vector v2(3);
-    v2[0] = 4.0; v2[1] = 5.0; v2[2] = 6.0;
-    store.addVector(v2);
-
-    Vector v3(3);
-    v3[0] = 7.0; v3[1] = 8.0; v3[2] = 9.0;
-    store.addVector(v3);
-
-    // Create a query vector
-    Vector query(3);
-    query[0] = 2.0; query[1] = 3.0; query[2] = 4.0;
-
-    // Find the nearest neighbor
-    size_t nearest_idx = store.findNearestNeighbor(query);
-    const Vector& nearest = store.getVector(nearest_idx);
-
-    std::cout << "Number of vectors in store: " << store.size() << std::endl;
-    std::cout << "Nearest neighbor index: " << nearest_idx << std::endl;
-    std::cout << "Nearest neighbor vector: [" 
-              << nearest[0] << ", " 
-              << nearest[1] << ", " 
-              << nearest[2] << "]" << std::endl;
-    std::cout << "Distance to query: " << query.distance(nearest) << std::endl;
-
+    try {
+        // Initialize vector store
+        VectorStore store("test_store");
+        
+        // Create and add a keyspace
+        auto keyspace = std::make_shared<Keyspace>(3, "test_keyspace");
+        store.addKeyspace(keyspace);
+        
+        // Add some random vectors to the keyspace
+        std::vector<Vector> vectors;
+        for(int i = 0; i < 5; ++i) {
+            vectors.push_back(createRandomVector(3));
+        }
+        keyspace->batchAddVectors(vectors);
+        
+        // Create a query vector
+        Vector query = createRandomVector(3);
+        
+        // Find nearest neighbor
+        size_t nearest_idx = keyspace->findNearestNeighbor(query);
+        spdlog::info("Nearest neighbor index: {}", nearest_idx);
+        
+        // Find neighbors above threshold
+        auto neighbors = keyspace->findNeighborsAboveThreshold(query, 0.5);
+        spdlog::info("Found {} neighbors above threshold", neighbors.size());
+        
+        // Remove the keyspace
+        store.removeKeyspace("test_keyspace");
+        
+        // Try to get removed keyspace (should throw)
+        try {
+            store.getKeyspace("test_keyspace");
+        } catch(const std::runtime_error& e) {
+            spdlog::info("Successfully caught error for removed keyspace");
+        }
+        
+    } catch(const std::exception& e) {
+        spdlog::error("Error: {}", e.what());
+        return 1;
+    }
+    
     return 0;
 } 

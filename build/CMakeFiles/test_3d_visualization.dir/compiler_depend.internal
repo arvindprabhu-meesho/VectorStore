@@ -12,7 +12,6 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/__wctype.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/__xlocale.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_abort.h
- /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_bounds.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_ctermid.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_ctype.h
@@ -486,6 +485,13 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/view_interface.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__std_mbstate_t.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_callback.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_source.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_state.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_token.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/char_traits.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/constexpr_c_functions.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/extern_template_lists.h
@@ -494,10 +500,14 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/system_error.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/formatter.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/jthread.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/support.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/support/pthread.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/this_thread.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/find_index.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/ignore.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/make_tuple_types.h
@@ -663,6 +673,7 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/compare
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/concepts
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/condition_variable
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdint
@@ -714,6 +725,7 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/system_error
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/thread
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/tuple
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/type_traits
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/typeinfo
@@ -874,6 +886,22 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/common.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/backtracer.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/circular_q.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/log_msg.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/log_msg_buffer.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/null_mutex.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/periodic_worker.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/registry.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/bundled/core.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/bundled/format.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/fmt.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/logger.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/spdlog.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/tweakme.h
+ /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/version.h
  /Users/arvindprabhu/MiscProjects/VectorStore/vector_store.hpp
  /Users/arvindprabhu/MiscProjects/VectorStore/vector_visualizer.hpp
  /opt/homebrew/include/SFML/Config.hpp

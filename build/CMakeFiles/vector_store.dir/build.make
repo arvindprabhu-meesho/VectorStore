@@ -95,6 +95,7 @@ vector_store_EXTERNAL_OBJECTS =
 
 vector_store: CMakeFiles/vector_store.dir/main.cpp.o
 vector_store: CMakeFiles/vector_store.dir/build.make
+vector_store: _deps/spdlog-build/libspdlog.a
 vector_store: CMakeFiles/vector_store.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable vector_store"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vector_store.dir/link.txt --verbose=$(VERBOSE)

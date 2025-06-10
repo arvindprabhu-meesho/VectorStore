@@ -95,6 +95,7 @@ test_3d_visualization_EXTERNAL_OBJECTS =
 
 test_3d_visualization: CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o
 test_3d_visualization: CMakeFiles/test_3d_visualization.dir/build.make
+test_3d_visualization: _deps/spdlog-build/libspdlog.a
 test_3d_visualization: CMakeFiles/test_3d_visualization.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_3d_visualization"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_3d_visualization.dir/link.txt --verbose=$(VERBOSE)

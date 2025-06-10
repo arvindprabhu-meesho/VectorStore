@@ -11,6 +11,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/4.0.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeSystem.cmake"
+  "_deps/spdlog-src/CMakeLists.txt"
+  "_deps/spdlog-src/cmake/ide.cmake"
+  "_deps/spdlog-src/cmake/utils.cmake"
   "/opt/homebrew/lib/cmake/SFML/SFMLConfig.cmake"
   "/opt/homebrew/lib/cmake/SFML/SFMLConfigVersion.cmake"
   "/opt/homebrew/lib/cmake/SFML/SFMLGraphicsSharedTargets-release.cmake"
@@ -27,14 +30,26 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+  "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+  "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake"
+  "/opt/homebrew/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake"
+  "/opt/homebrew/share/cmake/Modules/FetchContent.cmake"
+  "/opt/homebrew/share/cmake/Modules/FetchContent/CMakeLists.cmake.in"
+  "/opt/homebrew/share/cmake/Modules/FindGit.cmake"
+  "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+  "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+  "/opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake"
   "/opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+  "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
   "/opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake"
   "/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake"
   "/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake"
@@ -59,7 +74,9 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "_deps/spdlog-subbuild/CMakeLists.txt"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "_deps/spdlog-build/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -67,4 +84,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/vector_store.dir/DependInfo.cmake"
   "CMakeFiles/test_visualization.dir/DependInfo.cmake"
   "CMakeFiles/test_3d_visualization.dir/DependInfo.cmake"
+  "CMakeFiles/test_benchmark.dir/DependInfo.cmake"
+  "_deps/spdlog-build/CMakeFiles/spdlog.dir/DependInfo.cmake"
   )

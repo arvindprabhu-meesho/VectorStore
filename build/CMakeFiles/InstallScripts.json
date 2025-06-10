@@ -1,7 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/arvindprabhu/MiscProjects/VectorStore/build/cmake_install.cmake"
+		"/Users/arvindprabhu/MiscProjects/VectorStore/build/cmake_install.cmake",
+		"/Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

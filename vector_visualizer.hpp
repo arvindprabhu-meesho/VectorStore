@@ -15,6 +15,7 @@ class VectorVisualizer {
 private:
     sf::RenderWindow window;
     const VectorStore& store;
+    std::shared_ptr<Keyspace> current_keyspace;
     float scale;
     sf::Vector2f center;
     std::vector<sf::CircleShape> vectorPoints;
@@ -128,8 +129,10 @@ private:
 
     // Draw 3D vectors
     void draw3DVectors() {
-        for (size_t i = 0; i < store.size(); ++i) {
-            const Vector& vec = store.getVector(i);
+        if (!current_keyspace) return;
+
+        for (size_t i = 0; i < current_keyspace->size(); ++i) {
+            const Vector& vec = current_keyspace->getVector(i);
             // Draw line from origin to vector
             sf::VertexArray line(sf::PrimitiveType::Lines, 2);
             line[0].position = project3D({0,0,0});
@@ -179,11 +182,13 @@ private:
 
     // Update all visual elements with current scale (2D)
     void updateVisualElements() {
+        if (!current_keyspace) return;
+        
         vectorPoints.clear();
         connections.clear();
         if (!is3D) {
-            for (size_t i = 0; i < store.size(); ++i) {
-                const Vector& vec = store.getVector(i);
+            for (size_t i = 0; i < current_keyspace->size(); ++i) {
+                const Vector& vec = current_keyspace->getVector(i);
                 vectorPoints.push_back(createVectorPoint(vec, sf::Color::Green));
                 connections.push_back(createVectorLine(vec, sf::Color(100, 100, 100)));
             }
@@ -255,8 +260,15 @@ private:
 
     // Update info text
     void updateInfoText() {
+        if (!current_keyspace) {
+            infoText.setString("No keyspace selected");
+            return;
+        }
+
         std::string info = is3D ? "3D Vector Space Visualization\n" : "2D Vector Space Visualization\n";
-        info += "Number of vectors: " + std::to_string(store.size()) + "\n";
+        info += "Keyspace: " + current_keyspace->getName() + "\n";
+        info += "Number of vectors: " + std::to_string(current_keyspace->size()) + "\n";
+        info += "Dimension: " + std::to_string(current_keyspace->getDimension()) + "\n";
         info += "Scale: " + std::to_string(scale) + "\n";
         info += is3D ? "Use mouse wheel or arrow keys to zoom, arrow keys to rotate" : "Use mouse wheel or arrow keys to zoom";
         infoText.setString(info);
@@ -368,12 +380,12 @@ public:
         if (!font.openFromFile("/System/Library/Fonts/Helvetica.ttc")) {
             throw std::runtime_error("Could not load font");
         }
-        // Detect if 3D
-        is3D = (store.getDimension() == 3);
+
         // Setup info text
         infoText.setCharacterSize(14);
         infoText.setFillColor(sf::Color::White);
         infoText.setPosition(sf::Vector2f(10, 10));
+
         // Setup axis labels
         xAxisLabel.setString("x");
         xAxisLabel.setCharacterSize(16);
@@ -383,8 +395,15 @@ public:
         yAxisLabel.setCharacterSize(16);
         yAxisLabel.setFillColor(sf::Color::White);
         yAxisLabel.setPosition(sf::Vector2f(center.x + 5, 10));
-        // Create initial visual elements
-        updateVisualElements();
+
+        // Set initial keyspace if available
+        try {
+            current_keyspace = store.getKeyspace("test_keyspace");
+            is3D = (current_keyspace->getDimension() == 3);
+            updateVisualElements();
+        } catch (const std::runtime_error& e) {
+            spdlog::warn("No initial keyspace available: {}", e.what());
+        }
     }
 
     void run() {
@@ -460,6 +479,16 @@ public:
             }
             window.draw(infoText);
             window.display();
+        }
+    }
+
+    void setKeyspace(const std::string& name) {
+        try {
+            current_keyspace = store.getKeyspace(name);
+            is3D = (current_keyspace->getDimension() == 3);
+            updateVisualElements();
+        } catch (const std::runtime_error& e) {
+            spdlog::error("Failed to set keyspace: {}", e.what());
         }
     }
 };

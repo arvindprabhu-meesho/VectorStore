@@ -793,6 +793,43 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/vector_store.hpp \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/spdlog.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/common.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/tweakme.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/null_mutex.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/fmt.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/bundled/core.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/fmt/bundled/format.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/registry.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/periodic_worker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/condition_variable \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_callback.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_state.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/thread \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/formatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/jthread.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_source.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/this_thread.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/logger.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/log_msg.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/backtracer.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/log_msg_buffer.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/circular_q.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/version.h \
+  /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h \
   /Users/arvindprabhu/MiscProjects/VectorStore/vector_visualizer.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Graphics/BlendMode.hpp \
@@ -810,10 +847,6 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o: \
   /opt/homebrew/include/SFML/System/Export.hpp \
   /opt/homebrew/include/SFML/System/Angle.hpp \
   /opt/homebrew/include/SFML/System/Angle.inl \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
   /opt/homebrew/include/SFML/System/Vector2.inl \
   /opt/homebrew/include/SFML/Graphics/Rect.inl \
   /opt/homebrew/include/SFML/Graphics/RenderStates.hpp \
@@ -837,7 +870,6 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perms.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
@@ -863,8 +895,6 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o: \
   /opt/homebrew/include/SFML/Window/WindowEnums.hpp \
   /opt/homebrew/include/SFML/Window/WindowHandle.hpp \
   /opt/homebrew/include/SFML/System/Time.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
   /opt/homebrew/include/SFML/System/Time.inl \
   /opt/homebrew/include/SFML/Window/WindowBase.inl \
   /opt/homebrew/include/SFML/Window/Event.hpp \
@@ -898,8 +928,6 @@ CMakeFiles/test_3d_visualization.dir/test_3d_visualization.cpp.o: \
   /opt/homebrew/include/SFML/System/InputStream.hpp \
   /opt/homebrew/include/SFML/System/MemoryInputStream.hpp \
   /opt/homebrew/include/SFML/System/Sleep.hpp \
-  /Users/arvindprabhu/MiscProjects/VectorStore/vector_store.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/random \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
