@@ -169,6 +169,19 @@ test_benchmark/fast:
 .PHONY : test_benchmark/fast
 
 #=============================================================================
+# Target rules for targets named build_summary
+
+# Build rule for target.
+build_summary: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 build_summary
+.PHONY : build_summary
+
+# fast build rule for target.
+build_summary/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/build_summary.dir/build.make CMakeFiles/build_summary.dir/build
+.PHONY : build_summary/fast
+
+#=============================================================================
 # Target rules for targets named spdlog
 
 # Build rule for target.
@@ -285,6 +298,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... build_summary"
 	@echo "... spdlog"
 	@echo "... test_3d_visualization"
 	@echo "... test_benchmark"

@@ -42,53 +42,7 @@ public:
         return data[index];
     }
 
-    // Calculate Euclidean distance between two vectors
-    double euclideanDistance(const Vector& other) const {
-        if (dimension != other.dimension) {
-            throw std::runtime_error("Vectors must have same dimension");
-        }
-        
-        double sum = 0.0;
-        for (size_t i = 0; i < dimension; ++i) {
-            double diff = data[i] - other.data[i];
-            sum += diff * diff;
-        }
-        return std::sqrt(sum);
-    }
 
-
-    double cosineSimilarity(const Vector& other) const {
-        if (dimension != other.dimension) {
-            throw std::runtime_error("Vectors must have same dimension");
-        }
-        
-        double dotProduct = 0.0;
-        double magnitude1 = 0.0;
-        double magnitude2 = 0.0;
-
-        for (size_t i = 0; i < dimension; ++i) {
-            dotProduct += data[i] * other.data[i];
-            magnitude1 += data[i] * data[i];
-            magnitude2 += other.data[i] * other.data[i];
-        }
-
-        double magnitude = std::sqrt(magnitude1 * magnitude2);
-        if (magnitude == 0) {
-            return 0.0;
-        }
-        return dotProduct / magnitude;
-    }
-
-    double manhattanDistance(const Vector& other) const {
-        if (dimension != other.dimension) {
-            throw std::runtime_error("Vectors must have same dimension");
-        }
-        double sum = 0.0;
-        for (size_t i = 0; i < dimension; ++i) {
-            sum += std::abs(data[i] - other.data[i]);
-        }
-        return sum;
-    }
 };
 
 
@@ -120,6 +74,63 @@ public:
 
     // Get the dimension of vectors in the store
     size_t getDimension() const { return dimension; }
+
+    // Calculate Euclidean distance between two vectors
+    double euclideanDistance(const Vector& vec1, const Vector& vec2) const {
+        if (vec1.getDimension() != vec2.getDimension()) {
+            throw std::runtime_error("Vectors must have same dimension");
+        }
+        if (vec1.getDimension() != dimension) {
+            throw std::runtime_error("Vector dimension does not match keyspace dimension");
+        }
+        
+        double sum = 0.0;
+        for (size_t i = 0; i < dimension; ++i) {
+            double diff = vec1[i] - vec2[i];
+            sum += diff * diff;
+        }
+        return std::sqrt(sum);
+    }
+
+    double cosineSimilarity(const Vector& vec1, const Vector& vec2) const {
+        if (vec1.getDimension() != vec2.getDimension()) {
+            throw std::runtime_error("Vectors must have same dimension");
+        }
+        if (vec1.getDimension() != dimension) {
+            throw std::runtime_error("Vector dimension does not match keyspace dimension");
+        }
+        
+        double dotProduct = 0.0;
+        double magnitude1 = 0.0;
+        double magnitude2 = 0.0;
+
+        for (size_t i = 0; i < dimension; ++i) {
+            dotProduct += vec1[i] * vec2[i];
+            magnitude1 += vec1[i] * vec1[i];
+            magnitude2 += vec2[i] * vec2[i];
+        }
+
+        double magnitude = std::sqrt(magnitude1 * magnitude2);
+        if (magnitude == 0) {
+            return 0.0;
+        }
+        return dotProduct / magnitude;
+    }
+
+    double manhattanDistance(const Vector& vec1, const Vector& vec2) const {
+        if (vec1.getDimension() != vec2.getDimension()) {
+            throw std::runtime_error("Vectors must have same dimension");
+        }
+        if (vec1.getDimension() != dimension) {
+            throw std::runtime_error("Vector dimension does not match keyspace dimension");
+        }
+        
+        double sum = 0.0;
+        for (size_t i = 0; i < dimension; ++i) {
+            sum += std::abs(vec1[i] - vec2[i]);
+        }
+        return sum;
+    }
 
     // Add a vector to the store
     void addVector(const Vector& vec) {
@@ -167,10 +178,10 @@ public:
         }
 
         size_t nearest_idx = 0;
-        double min_distance = query.euclideanDistance(vectors[0]);
+        double min_distance = euclideanDistance(query, vectors[0]);
 
         for (size_t i = 1; i < vectors.size(); ++i) {
-            double dist = query.euclideanDistance(vectors[i]);
+            double dist = euclideanDistance(query, vectors[i]);
             if (dist < min_distance) {
                 min_distance = dist;
                 nearest_idx = i;
@@ -192,7 +203,7 @@ public:
         std::vector<std::pair<size_t, double>> results;
         
         for (size_t i = 0; i < vectors.size(); ++i) {
-            double dist = query.euclideanDistance(vectors[i]);
+            double dist = euclideanDistance(query, vectors[i]);
             // Convert euclideanDistance to similarity (1 / (1 + euclideanDistance))
             double similarity = 1.0 / (1.0 + dist);
             
@@ -251,6 +262,27 @@ public:
         }
         spdlog::error("Keyspace not found: {} in VectorStore: {}", name, vector_store_name);
         throw std::runtime_error("Keyspace not found");
+    }
+
+    std::shared_ptr<Keyspace> createKeyspace(size_t dimension, const std::string& name) {
+        mtx.lock();
+        
+        // Check if keyspace with same name already exists
+        for(const auto& keyspace: keyspaces) {
+            if(keyspace->getName() == name) {
+                mtx.unlock();
+                spdlog::error("Keyspace with name '{}' already exists in VectorStore: {}", name, vector_store_name);
+                throw std::runtime_error("Keyspace with this name already exists");
+            }
+        }
+        
+        // Create new keyspace
+        auto new_keyspace = std::make_shared<Keyspace>(dimension, name);
+        keyspaces.push_back(new_keyspace);
+        spdlog::info("Created and added keyspace: {} to VectorStore: {}", name, vector_store_name);
+        
+        mtx.unlock();
+        return new_keyspace;
     }
 };
 

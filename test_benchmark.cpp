@@ -8,6 +8,15 @@
 
 using namespace std::chrono;
 
+// Helper function to create a Vector from float values
+Vector createVectorFromFloat(const std::vector<float>& floatVec) {
+    Vector vec(floatVec.size());
+    for (size_t i = 0; i < floatVec.size(); ++i) {
+        vec[i] = static_cast<double>(floatVec[i]);
+    }
+    return vec;
+}
+
 // Helper function to generate random vectors
 std::vector<float> generateRandomVector(size_t dimension) {
     std::random_device rd;
@@ -42,14 +51,20 @@ void runBenchmark(size_t numVectors, size_t vectorDimension, size_t numKeyspaces
     // Create keyspaces
     std::vector<std::shared_ptr<Keyspace>> keyspaces;
     for (size_t i = 0; i < numKeyspaces; ++i) {
-        keyspaces.push_back(store.createKeyspace("keyspace_" + std::to_string(i)));
+        keyspaces.push_back(store.createKeyspace(vectorDimension, "keyspace_" + std::to_string(i)));
+    }
+
+    // Create vectors for benchmark
+    std::vector<Vector> vectors;
+    for (size_t i = 0; i < numVectors; ++i) {
+        auto floatVec = generateRandomVector(vectorDimension);
+        vectors.push_back(createVectorFromFloat(floatVec));
     }
 
     // Measure insertion time
     start = high_resolution_clock::now();
     for (size_t i = 0; i < numVectors; ++i) {
-        auto vec = generateRandomVector(vectorDimension);
-        keyspaces[i % numKeyspaces]->addVector("vec_" + std::to_string(i), vec);
+        keyspaces[i % numKeyspaces]->addVector(vectors[i]);
     }
     end = high_resolution_clock::now();
     duration = duration_cast<microseconds>(end - start);
@@ -59,8 +74,15 @@ void runBenchmark(size_t numVectors, size_t vectorDimension, size_t numKeyspaces
     // Measure search time
     start = high_resolution_clock::now();
     for (size_t i = 0; i < 100; ++i) {  // Perform 100 searches
-        auto queryVec = generateRandomVector(vectorDimension);
-        auto results = keyspaces[0]->search(queryVec, 5);
+        auto queryFloatVec = generateRandomVector(vectorDimension);
+        Vector queryVec = createVectorFromFloat(queryFloatVec);
+        try {
+            size_t nearestIdx = keyspaces[0]->findNearestNeighbor(queryVec);
+            // Also test threshold search
+            auto results = keyspaces[0]->findNeighborsAboveThreshold(queryVec, 0.5);
+        } catch (const std::exception& e) {
+            // Handle empty keyspace case
+        }
     }
     end = high_resolution_clock::now();
     duration = duration_cast<microseconds>(end - start);
@@ -73,7 +95,10 @@ void runBenchmark(size_t numVectors, size_t vectorDimension, size_t numKeyspaces
     // Measure deletion time
     start = high_resolution_clock::now();
     for (size_t i = 0; i < numVectors; ++i) {
-        keyspaces[i % numKeyspaces]->removeVector("vec_" + std::to_string(i));
+        size_t keyspaceIdx = i % numKeyspaces;
+        if (keyspaces[keyspaceIdx]->size() > 0) {
+            keyspaces[keyspaceIdx]->removeVector(0);  // Always remove the first vector
+        }
     }
     end = high_resolution_clock::now();
     duration = duration_cast<microseconds>(end - start);

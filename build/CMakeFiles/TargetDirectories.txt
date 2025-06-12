@@ -2,6 +2,7 @@
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/test_visualization.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/test_3d_visualization.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/test_benchmark.dir
+/Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/build_summary.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/edit_cache.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/CMakeFiles/rebuild_cache.dir
 /Users/arvindprabhu/MiscProjects/VectorStore/build/_deps/spdlog-build/CMakeFiles/spdlog.dir

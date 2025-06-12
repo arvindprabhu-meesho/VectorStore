@@ -85,5 +85,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_visualization.dir/DependInfo.cmake"
   "CMakeFiles/test_3d_visualization.dir/DependInfo.cmake"
   "CMakeFiles/test_benchmark.dir/DependInfo.cmake"
+  "CMakeFiles/build_summary.dir/DependInfo.cmake"
   "_deps/spdlog-build/CMakeFiles/spdlog.dir/DependInfo.cmake"
   )
